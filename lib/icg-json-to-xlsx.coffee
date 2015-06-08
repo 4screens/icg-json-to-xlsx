@@ -1,6 +1,7 @@
 fs = require("fs")
 path = require("path")
 _ = require("lodash")
+debug = require("debug")("icg-json-to-xlsx")
 XLSX = require('xlsx')
 isodate = require("isodate")
 
@@ -60,7 +61,7 @@ sheetFromJson = (data, opts) ->
   data.unshift headerObj
   _.each data, (row, R) ->
     C = 0
-    console.log(opts)
+    debug(opts)
     _.each opts.attributes, (prop) ->
       val = row[prop] || ""
       range.s.r = R  if range.s.r > R
@@ -154,7 +155,7 @@ buildWorkbook = (data, options)->
 
   if not options.attributes
     attrs = getAttrs(data)
-    console.log(attrs)
+    debug(attrs)
     options.attributes = attrs
 
   if not options.sheetName

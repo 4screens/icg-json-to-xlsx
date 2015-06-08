@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ICGGroup/icg-json-to-xlsx",
   "dependencies": {
+    "debug": "^2.2.0",
     "isodate": "^0.1.4",
     "lodash": "^2.4.1",
     "xlsx": "^0.7.10"
